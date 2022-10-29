@@ -1,0 +1,148 @@
+* {
+    font-family: "Inter", sans-serif;
+    color: #357b77;
+}
+
+body,
+html {
+    margin: 0;
+    overflow-x: hidden;
+    width: 100%;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+body {
+    padding: 26px 0px 26px 26px;
+    position: relative;
+}
+#spacer {
+    height: 40px;
+}
+
+h1 {
+    font-size: 30px;
+    margin: 0px;
+    font-weight: 600;
+}
+
+h2 {
+    font-size: 24px;
+    margin: 0px;
+    font-weight: 600;
+    color: rgba(53, 123, 119, 0.5);
+}
+
+#current_week_dishes_scrollable {
+    width: 100%;
+    display: flex;
+    overflow: auto;
+
+    column-gap: 16px;
+    scroll-snap-type: x mandatory;
+    margin-top: 32px;
+    padding-bottom: 16px;
+  
+}
+
+#current_week_dishes_scrollable::-webkit-scrollbar {
+    display: none;
+  }
+
+.todaysDishCard {
+}
+
+.dishcard {
+    scroll-snap-align: start;
+    max-width: 130px;
+    position: relative;
+    
+}
+
+.dishcard:last-child {
+    margin-right: 26px;
+}
+.dishTitle {
+    font-weight: 600;
+    font-size: 14px;
+    margin-bottom: 0;
+    margin-top: 7px;
+    width: 110px;
+}
+
+.dishSubTitle {
+    color: rgba(53, 123, 119, 0.5);
+    margin: 0;
+}
+
+.dishcardImageOverlay {
+    background: #AC3F37;
+    border-radius: 20px 20px 0px 0px;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 21px;
+}
+
+#star{
+    width: 10px;
+    height: 10px;
+    padding-bottom: 2px;
+    margin-right: 3px;
+}
+
+.dishcardImageOverlayText{
+    padding: 0;
+    margin: 0;
+    color: white;
+
+ 
+    font-size: 12px;
+}
+
+
+.dishcardImageOverlay1 {
+    background: #357b77;
+    border-radius: 20px 20px 0px 0px;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 21px;
+    left: 0;
+
+}
+
+.dishcardImageOverlayText1{
+    padding: 0;
+    margin: 0;
+    color: white;
+
+ 
+    font-size: 12px;
+}
+
+
+.dishcard:first-child .dishcardImage{
+    box-shadow: none;
+}
+.dishcardImage {
+    object-fit: cover;
+    width: 130px;
+    height: 130px;
+    border-radius: 20px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25)
+}
+#card1{
+    border-radius: 20px;
+    background-color:rgba(127, 187, 196, 0.26);
+    padding:25px 15px 15px 15px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25)
+
+}
