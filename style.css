@@ -14,7 +14,6 @@ html {
 }
 
 body {
-    padding: 26px 0px 26px 26px;
     position: relative;
 }
 #spacer {
@@ -34,6 +33,11 @@ h2 {
     color: rgba(53, 123, 119, 0.5);
 }
 
+.titleContainer{
+    padding: 26px 0px 26px 26px;
+
+}
+
 #current_week_dishes_scrollable {
     width: 100%;
     display: flex;
@@ -41,7 +45,7 @@ h2 {
 
     column-gap: 16px;
     scroll-snap-type: x mandatory;
-    margin-top: 32px;
+    margin: 10px 0px 26px 26px;
     padding-bottom: 16px;
   
 }
@@ -146,3 +150,66 @@ h2 {
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25)
 
 }
+/* Dish selection */
+.nextWeekBar{
+    background-color: rgba(53, 123, 119, 0.5);
+    padding: 26px 10px 26px 10px;
+}
+
+.nextWeekBar > h2{
+    color: white;
+    padding:0 0 10px 16px;
+}
+
+.nextWeekDayCard{
+    background-color: white;
+    border-radius: 20px;
+    padding: 10px 10px 0 10px;
+    min-width: 60px;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    margin-bottom: 10px;
+}
+
+.nextWeekDayCard > p{
+    margin: 0 0;
+}
+
+.nextWeekContainer{
+    display: flex;
+    overflow-x: auto;
+    column-gap: 10px;
+}
+
+.nextWeekContainer::-webkit-scrollbar {
+    display: none;
+}
+
+.presenceContainer{
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: 1fr;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    margin-top: 20px;
+}
+
+.presenceCircle{
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 3px solid blue;
+    background-color: gray;
+    color: white;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 5px;
+}
+
+.presenceCircle:nth-child(1) { grid-column: 1 / span 2; grid-row: 1; }
+.presenceCircle:nth-child(2) { grid-column: 2 / span 2; grid-row: 1; }
+.presenceCircle:nth-child(3) { grid-column: 3 / span 2; grid-row: 1;}
+.presenceCircle:nth-child(4) { grid-column: 4 ; grid-row: 1;}
+
+/* Pick your dinner */
