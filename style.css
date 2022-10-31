@@ -3,6 +3,7 @@
     color: #357b77;
 }
 
+
 body,
 html {
     margin: 0;
@@ -153,7 +154,9 @@ h2 {
 /* Dish selection */
 .nextWeekBar{
     background-color: rgba(53, 123, 119, 0.5);
-    padding: 26px 10px 26px 10px;
+    /* padding: 26px 0px 26px 10px; */
+    
+
 }
 
 .nextWeekBar > h2{
@@ -166,8 +169,12 @@ h2 {
     border-radius: 20px;
     padding: 10px 10px 0 10px;
     min-width: 60px;
+    width: 60px;
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
     margin-bottom: 10px;
+    scroll-snap-align: start;
+    scroll-margin-left: 10px;
+
 }
 
 .nextWeekDayCard > p{
@@ -175,9 +182,16 @@ h2 {
 }
 
 .nextWeekContainer{
-    display: flex;
+    display: grid;
+    grid-auto-flow: column;
     overflow-x: auto;
     column-gap: 10px;
+    scroll-snap-type: x mandatory;
+
+    height: auto;
+    padding: 10px 10px 10px 10px;
+    
+    justify-content: flex-start;
 }
 
 .nextWeekContainer::-webkit-scrollbar {
@@ -191,13 +205,15 @@ h2 {
     grid-column-gap: 0px;
     grid-row-gap: 0px;
     margin-top: 20px;
+    
+
 }
 
 .presenceCircle{
     width: 20px;
     height: 20px;
     border-radius: 50%;
-    border: 3px solid blue;
+    border: 3px solid white;
     background-color: gray;
     color: white;
     font-size: 12px;
