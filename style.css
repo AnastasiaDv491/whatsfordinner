@@ -47,7 +47,9 @@ h2 {
     scroll-snap-type: x mandatory;
     margin: 10px 0px 26px 0px;
     padding-bottom: 16px;
-   
+    padding-left: 26px;
+    padding-right: 10px;
+  
 }
 
 #current_week_dishes_scrollable::-webkit-scrollbar {
