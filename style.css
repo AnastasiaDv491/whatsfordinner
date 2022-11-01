@@ -3,7 +3,6 @@
     color: #357b77;
 }
 
-
 body,
 html {
     margin: 0;
@@ -34,9 +33,8 @@ h2 {
     color: rgba(53, 123, 119, 0.5);
 }
 
-.titleContainer{
+.titleContainer {
     padding: 26px 0px 26px 26px;
-
 }
 
 #current_week_dishes_scrollable {
@@ -49,12 +47,11 @@ h2 {
     padding-bottom: 16px;
     padding-left: 26px;
     padding-right: 10px;
-  
 }
 
 #current_week_dishes_scrollable::-webkit-scrollbar {
     display: none;
-  }
+}
 
 .todaysDishCard {
 }
@@ -65,7 +62,6 @@ h2 {
 
     max-width: 130px;
     position: relative;
-    
 }
 
 .dishcard:last-child {
@@ -85,7 +81,7 @@ h2 {
 }
 
 .dishcardImageOverlay {
-    background: #AC3F37;
+    background: #ac3f37;
     border-radius: 20px 20px 0px 0px;
     position: absolute;
     top: 0;
@@ -96,22 +92,20 @@ h2 {
     height: 21px;
 }
 
-#star{
+#star {
     width: 10px;
     height: 10px;
     padding-bottom: 2px;
     margin-right: 3px;
 }
 
-.dishcardImageOverlayText{
+.dishcardImageOverlayText {
     padding: 0;
     margin: 0;
     color: white;
 
- 
     font-size: 12px;
 }
-
 
 .dishcardImageOverlay1 {
     background: #357b77;
@@ -124,20 +118,17 @@ h2 {
     justify-content: center;
     height: 21px;
     left: 0;
-
 }
 
-.dishcardImageOverlayText1{
+.dishcardImageOverlayText1 {
     padding: 0;
     margin: 0;
     color: white;
 
- 
     font-size: 12px;
 }
 
-
-.dishcard:first-child .dishcardImage{
+.dishcard:first-child .dishcardImage {
     box-shadow: none;
 }
 .dishcardImage {
@@ -145,29 +136,26 @@ h2 {
     width: 130px;
     height: 130px;
     border-radius: 20px;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25)
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
-#card1{
+#card1 {
     border-radius: 20px;
-    background-color:rgba(127, 187, 196, 0.26);
-    padding:25px 15px 15px 15px;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25)
-
+    background-color: rgba(127, 187, 196, 0.26);
+    padding: 25px 15px 15px 15px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 /* Dish selection */
-.nextWeekBar{
+.nextWeekBar {
     background-color: rgba(53, 123, 119, 0.5);
     padding: 16px 0px 0px 0px;
-    
-
 }
 
-.nextWeekBar > h2{
+.nextWeekBar > h2 {
     color: white;
-    padding:0 0 10px 16px;
+    padding: 0 0 10px 16px;
 }
 
-.nextWeekDayCard{
+.nextWeekDayCard {
     background-color: white;
     border-radius: 20px;
     padding: 10px 10px 0 10px;
@@ -177,28 +165,26 @@ h2 {
     margin-bottom: 10px;
     scroll-snap-align: start;
     scroll-margin-left: 10px;
-
 }
 
-.nextWeekDayCard > p{
+.nextWeekDayCard > p {
     margin: 0 0;
 }
 
-.present{
-    background-color: #357B77;
-    
+.present {
+    background-color: #357b77;
 }
 
-.present > *{
+.present > * {
     color: white;
 }
 
-.nextWeekDayCardDay, .nextWeekDayCardDate{
+.nextWeekDayCardDay,
+.nextWeekDayCardDate {
     font-weight: 600;
-
 }
 
-.nextWeekContainer{
+.nextWeekContainer {
     display: grid;
     grid-auto-flow: column;
     overflow-x: auto;
@@ -207,7 +193,7 @@ h2 {
 
     height: auto;
     padding: 0px 10px 10px 10px;
-    
+
     justify-content: flex-start;
 }
 
@@ -215,18 +201,16 @@ h2 {
     display: none;
 }
 
-.presenceContainer{
+.presenceContainer {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: 1fr;
     grid-column-gap: 0px;
     grid-row-gap: 0px;
     margin-top: 20px;
-    
-
 }
 
-.presenceCircle{
+.presenceCircle {
     width: 20px;
     height: 20px;
     border-radius: 50%;
@@ -240,7 +224,7 @@ h2 {
     margin-bottom: 5px;
 }
 
-.presenceCircleImage{
+.presenceCircleImage {
     width: 20px;
     height: 20px;
     border-radius: 50%;
@@ -251,10 +235,76 @@ h2 {
     margin-bottom: 5px;
 }
 
-.presenceCircle:nth-child(1) { grid-column: 1 / span 3; grid-row: 1; }
-.presenceCircle:nth-child(2) { grid-column: 3 / span 3; grid-row: 1; }
-.presenceCircle:nth-child(3) { grid-column: 5 / span 3; grid-row: 1;}
-.presenceCircle:nth-child(4) { grid-column: 7 / span 3; grid-row: 1;}
-
+.presenceCircle:nth-child(1) {
+    grid-column: 1 / span 3;
+    grid-row: 1;
+}
+.presenceCircle:nth-child(2) {
+    grid-column: 3 / span 3;
+    grid-row: 1;
+}
+.presenceCircle:nth-child(3) {
+    grid-column: 5 / span 3;
+    grid-row: 1;
+}
+.presenceCircle:nth-child(4) {
+    grid-column: 7 / span 3;
+    grid-row: 1;
+}
 
 /* Pick your dinner */
+
+.pickDinnerContainer > h2 {
+    color: rgba(53, 123, 119, 0.5);
+    padding: 0 0 10px 16px;
+    margin-top: 15px;
+}
+
+.yourPicksContainer {
+    padding: 10px 16px 10px 16px;
+    margin: 0 16px 10px 16px;
+    background-color: rgba(127, 187, 196, 0.26);
+    border-radius: 8px;
+
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 1fr;
+    grid-column-gap: 10px;
+    grid-row-gap: 0px;
+}
+.yourPicksContainer > h4 {
+    margin: 0;
+}
+
+.yourPicksCard {
+    border-radius: 8px;
+}
+.yourPicksImg {
+    width: 70px;
+    height: 70px;
+    border-radius: 8px;
+}
+
+.yourPicksCard > P {
+    font-size: 10px;
+    margin-top: 0;
+}
+
+.yourPicksRank {
+    background-color: #357b77;
+    width: 27px;
+    height: 27px;
+    border-radius: 50%;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.yourPicksImgContainer {
+    position: relative;
+}
