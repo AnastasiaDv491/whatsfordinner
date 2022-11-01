@@ -237,9 +237,21 @@ h2 {
     margin-bottom: 5px;
 }
 
+.presenceCircleImage{
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 2px solid white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 5px;
+}
+
 .presenceCircle:nth-child(1) { grid-column: 1 / span 3; grid-row: 1; }
 .presenceCircle:nth-child(2) { grid-column: 3 / span 3; grid-row: 1; }
 .presenceCircle:nth-child(3) { grid-column: 5 / span 3; grid-row: 1;}
 .presenceCircle:nth-child(4) { grid-column: 7 / span 3; grid-row: 1;}
+
 
 /* Pick your dinner */
