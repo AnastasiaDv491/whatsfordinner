@@ -40,13 +40,12 @@ h2 {
 }
 
 #current_week_dishes_scrollable {
-    width: 100%;
     display: flex;
     overflow: auto;
 
     column-gap: 16px;
     scroll-snap-type: x mandatory;
-    margin: 10px 0px 26px 26px;
+    margin: 10px 0px 26px 0px;
     padding-bottom: 16px;
    
 }
@@ -60,6 +59,8 @@ h2 {
 
 .dishcard {
     scroll-snap-align: start;
+    scroll-margin-left: 15px;
+
     max-width: 130px;
     position: relative;
     
