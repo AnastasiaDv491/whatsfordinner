@@ -48,7 +48,7 @@ h2 {
     scroll-snap-type: x mandatory;
     margin: 10px 0px 26px 26px;
     padding-bottom: 16px;
-  
+   
 }
 
 #current_week_dishes_scrollable::-webkit-scrollbar {
@@ -181,6 +181,20 @@ h2 {
     margin: 0 0;
 }
 
+.present{
+    background-color: #357B77;
+    
+}
+
+.present > *{
+    color: white;
+}
+
+.nextWeekDayCardDay, .nextWeekDayCardDate{
+    font-weight: 600;
+
+}
+
 .nextWeekContainer{
     display: grid;
     grid-auto-flow: column;
@@ -213,7 +227,7 @@ h2 {
     width: 20px;
     height: 20px;
     border-radius: 50%;
-    border: 3px solid white;
+    border: 2px solid white;
     background-color: gray;
     color: white;
     font-size: 12px;
