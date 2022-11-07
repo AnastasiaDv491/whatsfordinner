@@ -2,22 +2,17 @@
 	import { initializeApp } from 'firebase/app';
 	import {
 		getAuth,
-		createUserWithEmailAndPassword,
 		signInWithEmailAndPassword,
     onAuthStateChanged,
-    signOut, 
-    type User
+    signOut
 	} from 'firebase/auth';
 	import { onMount } from 'svelte';
-
-	// TODO: Add SDKs for Firebase products that you want to use
-	// https://firebase.google.com/docs/web/setup#available-libraries
 
 	// Your web app's Firebase configuration
 	let username = '';
 	let password = '';
-  let user: User | null;
-  
+  let user;
+
 	const firebaseConfig = {
 		apiKey: 'AIzaSyBALPwgdqFRM2YBB2Ro1uroSY2QM9J-J4E',
 		authDomain: 'whatsfordinner-17f94.firebaseapp.com',
@@ -31,9 +26,6 @@
 	const app = initializeApp(firebaseConfig);
 
 	// Initialize Firebase Authentication and get a reference to the service
-
-
-
 	const login = () => {
 		const auth = getAuth(app);
 
@@ -41,18 +33,20 @@
 			.catch((error) => {
 				const errorCode = error.code;
 				const errorMessage = error.message;
+        console.log(errorCode, errorMessage);
 			});
 	};
 
   const logout = () => {
     const auth = getAuth(app);
-    signOut(auth);
+    signOut(auth)
   };
 
   onMount(async () => {
     const auth = getAuth(app);
     onAuthStateChanged(auth, (newUser) =>{
       user = newUser;
+	  console.log(user);
     });
 
   });
@@ -75,8 +69,7 @@
 
     {#if user}
       <p>Singed In</p>
-      <button on:click = {logout}></button>
+      <button on:click = {logout}>Logout</button>
     {/if}
 	</div>
-	<script type="module" src="firebase.js"></script>
 </body>
