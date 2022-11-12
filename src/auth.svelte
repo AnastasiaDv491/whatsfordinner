@@ -53,11 +53,11 @@
 			user = newUser;
 			console.log(user);
 			if (!user) {
-				goto('/login');
+				goto('/');
 				return;
 				
 			}
-
+			goto('/home');
 		});
 	});
 </script>
