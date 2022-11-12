@@ -6,7 +6,7 @@
 	let username;
 	let password;
 </script>
-<link rel="stylesheet" href="src/theme.css" />
+<link rel="stylesheet" href="static/theme.css" />
 
 <Auth
 	let:user
@@ -42,7 +42,7 @@
 	<h4 class="forgotPassword" on:click={() => goto('/forgotpassword')}>Forgot your password?</h4>
 	{#if user}
 		<p>Singed In</p>
-		<button on:click={() => goto('/logout')}>Logout</button>
+		<button on:click={logout}>Logout</button>
 	{/if}
 </div>
 </Auth>

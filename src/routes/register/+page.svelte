@@ -38,7 +38,7 @@ createUserWithEmailAndPassword(auth, username, password)
 </script>
 
 
-<link rel="stylesheet" href="src/theme.css" />
+<link rel="stylesheet" href="static/theme.css" />
 <div id="signupContainer">
 	<h1>Sign Up</h1>
 

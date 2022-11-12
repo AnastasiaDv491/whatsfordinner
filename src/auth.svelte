@@ -58,7 +58,6 @@
 				
 			}
 
-			goto('/home');
 		});
 	});
 </script>
