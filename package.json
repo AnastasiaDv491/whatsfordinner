@@ -12,6 +12,7 @@
 		"format": "prettier --plugin-search-dir . --write ."
 	},
 	"devDependencies": {
+		"@sveltejs/adapter-node": "^1.0.0-next.100",
 		"@sveltejs/kit": "next",
 		"@tsconfig/svelte": "^3.0.0",
 		"eslint": "^8.16.0",
