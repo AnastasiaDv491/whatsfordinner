@@ -451,3 +451,10 @@ h2 {
 .register, .forgotPassword{
     text-align: center;
 }
+
+#loginContainer > h1{
+    text-align: center;
+}
+#signupContainer > h1{
+    text-align: center;
+}

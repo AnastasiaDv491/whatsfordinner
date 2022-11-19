@@ -6,7 +6,6 @@
 	let username;
 	let password;
 </script>
-<link rel="stylesheet" href="static/theme.css" />
 
 <Auth
 	let:user
@@ -38,7 +37,7 @@
 
 	<button class="loginButton" type="submit" on:click={login(username,password)}>Login</button>
 
-	<h4 class="register" on:click={() => goto('/signuppage')}>Sign up</h4>
+	<h4 class="register" on:click={() => goto('/register')}>Sign up</h4>
 	<h4 class="forgotPassword" on:click={() => goto('/forgotpassword')}>Forgot your password?</h4>
 	{#if user}
 		<p>Singed In</p>

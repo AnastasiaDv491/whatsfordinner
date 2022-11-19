@@ -5,10 +5,13 @@
 		signInWithEmailAndPassword,
 		onAuthStateChanged,
 		signOut,
-		createUserWithEmailAndPassword
+		createUserWithEmailAndPassword,
+		sendEmailVerification,
+		deleteUser
 	} from 'firebase/auth';
 	import { onMount } from 'svelte';
 	import { goto } from '$app/navigation';
+	import { page } from '$app/stores';
 
 	// Your web app's Firebase configuration
 
@@ -25,16 +28,39 @@
 
 	// Initialize Firebase
 	const app = initializeApp(firebaseConfig);
+	const auth = getAuth(app);
 
 	// Initialize Firebase Authentication and get a reference to the service
 	export const login = (username, password) => {
-		const auth = getAuth(app);
-
 		signInWithEmailAndPassword(auth, username, password).catch((error) => {
 			const errorCode = error.code;
 			const errorMessage = error.message;
 			console.log(errorCode, errorMessage);
 		});
+	};
+
+	export const signup = (email, password) => {
+		createUserWithEmailAndPassword(auth, email, password)
+			.then((userCredential) => {
+				// Signed in
+				const user = userCredential.user;
+
+				if (user) {
+					sendEmailVerification(auth.currentUser).then(() => {
+						// Email verification sent!
+						// ...
+						console.log('sent');
+					});
+				}
+				console.log(user);
+				// ...
+			})
+			.catch((error) => {
+				const errorCode = error.code;
+				const errorMessage = error.message;
+				console.log(errorMessage);
+				// ..
+			});
 	};
 
 	export const logout = () => {
@@ -46,22 +72,32 @@
 		goto('/register');
 	};
 
-
 	onMount(async () => {
 		const auth = getAuth(app);
 		onAuthStateChanged(auth, (newUser) => {
 			user = newUser;
 			console.log(user);
+			console.log($page.url.pathname);
 			if (!user) {
-				goto('/');
+				if ($page.url.pathname != '/register') {
+					goto('/');
+					return;
+				}
 				return;
-				
 			}
-			goto('/home');
+			if (user.emailVerified == true){
+				goto('/home');
+				return;
+			} 
+			else {
+				goto('/verification');
+				return;
+			}
+			
 		});
 	});
 </script>
 
 <div>
-	<slot {user} {login} {logout} />
+	<slot {user} {login} {logout} {signup} />
 </div>
