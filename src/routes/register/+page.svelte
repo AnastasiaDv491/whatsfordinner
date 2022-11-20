@@ -1,18 +1,22 @@
-<script lang="ts">
+<script>
 	import { goto } from '$app/navigation';
-	import {
-		createUserWithEmailAndPassword,
-		sendEmailVerification,
-	} from 'firebase/auth';
+	import { error } from '@sveltejs/kit';
+	import { createUserWithEmailAndPassword, sendEmailVerification } from 'firebase/auth';
 	import { auth } from '../../firebase.js';
 
-	let email:string;
-	let password:string;
 
-	export const signup = (email:string, password:string) => {
+		console.log(auth.currentUser);
+	
+
+	let email;
+	let password;
+	let errorMessage = '';
+
+	export const signup = (email, password) => {
 		createUserWithEmailAndPassword(auth, email, password)
 			.then((userCredential) => {
 				// Signed in
+				errorMessage = '';
 				const user = userCredential.user;
 
 				if (user) {
@@ -26,17 +30,27 @@
 			})
 			.catch((error) => {
 				const errorCode = error.code;
-				const errorMessage = error.message;
-				console.log(errorMessage);
+
+				console.log(error.code);
+				
+				switch (error.code) {
+					case 'auth/email-already-in-use':
+						errorMessage = "This email is already in use";
+						break;
+
+					default:
+						errorMessage = error.message;
+						break;
+				}
 				// ..
 			});
 	};
 </script>
-
+{#if !auth.currentUser}
 <div id="signupContainer">
 	<h1>Sign Up</h1>
 
-	<div class="signupContainer">
+	<form class="signupContainer" on:submit|preventDefault={() => signup(email, password)}>
 		<input
 			class="signupInput"
 			type="text"
@@ -54,7 +68,10 @@
 			required
 			bind:value={password}
 		/>
-	</div>
+		<button class="signupButton" type="submit">Sign up</button>
+	</form>
 
-	<button class="signupButton" type="submit" on:click={signup(email, password)}>Sign up</button>
+	<p class="errorMessage">{errorMessage}</p>
 </div>
+
+{/if}

@@ -1,5 +1,10 @@
 <script>
 	import { goto } from '$app/navigation';
+	import { auth } from '../../../firebase.js';
+	import { signOut } from 'firebase/auth';
+	const logout = () => {
+		signOut(auth);
+	};
 </script>
 
 <title>Home</title>

@@ -1,51 +1,57 @@
-<script lang="ts">
+<script>
 	import { goto } from '$app/navigation';
 
-
-
-	import {
-		signInWithEmailAndPassword,
-	} from 'firebase/auth';
+	import { signInWithEmailAndPassword } from 'firebase/auth';
 	import { auth } from '../firebase.js';
 
-	
 	let user;
-	let username:string;
-	let password:string;
+	let email;
+	let password;
+	let errorMessage = '';
 
-	export const login = (username:string, password:string) => {
-		signInWithEmailAndPassword(auth, username, password)
+	export const login = (email, password) => {
+		signInWithEmailAndPassword(auth, email, password)
 			.then((userCredential) => {
 				// Signed in
-				if (user.emailVerified) {
+				
+				if (userCredential.user.emailVerified) {
 					goto('/home');
+				} else {
+					goto('/verification');
 				}
-				else{
-					goto('/verificiation')
-
-				}
-
 			})
 			.catch((error) => {
 				const errorCode = error.code;
-				const errorMessage = error.message;
+				switch (errorCode) {
+					case 'auth/invalid-email':
+						errorMessage = 'Invalid email';
+						break;
+
+					default:
+						errorMessage = error.message;
+
+						break;
+				}
 				console.log(errorCode, errorMessage);
 			});
 	};
-
 </script>
 
 <div id="loginContainer">
 	<h1>Log In</h1>
 
-	<div class="inputContainer">
+	<form
+		id="loginForm"
+		class="inputContainer"
+		on:submit|preventDefault={() => login(email, password)}
+	>
 		<input
 			class="loginInput"
 			type="text"
-			placeholder="Username"
-			name="uname"
+			placeholder="Email"
+			name="email"
 			required
-			bind:value={username}
+			bind:value={email}
 		/>
 
 		<input
@@ -56,10 +62,10 @@
 			required
 			bind:value={password}
 		/>
-	</div>
+		<button class="loginButton" type="submit">Login</button>
+	</form>
+	<p class="errorMessage">{errorMessage}</p>
 
-	<button class="loginButton" type="submit" on:click={() =>login(username, password)}>Login</button>
-
-	<h4 class="register" on:click={() => goto('/register')}>Sign up</h4>
-	<h4 class="forgotPassword" on:click={() => goto('/forgotpassword')}>Forgot your password?</h4>
+	<a href="/register"><h4 class="register">Sign up</h4></a>
+	<a href="/forgotpassword"><h4 class="forgotPassword" on:click={() => goto('/forgotpassword')}>Forgot your password?</h4></a>
 </div>
