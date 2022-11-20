@@ -1,30 +1,30 @@
-<script>
-	import Auth from '/src/auth.svelte';
+<script lang="ts">
 	import { goto } from '$app/navigation';
+
+
+
 	import {
-		getAuth,
 		signInWithEmailAndPassword,
-		onAuthStateChanged,
-		signOut,
-		createUserWithEmailAndPassword,
-		sendEmailVerification,
-		deleteUser
 	} from 'firebase/auth';
 	import { auth } from '../firebase.js';
 
+	
 	let user;
-	let username;
-	let password;
+	let username:string;
+	let password:string;
 
-	export const login = (username, password) => {
+	export const login = (username:string, password:string) => {
 		signInWithEmailAndPassword(auth, username, password)
 			.then((userCredential) => {
 				// Signed in
-				const user = userCredential.user;
-				if (user) {
+				if (user.emailVerified) {
 					goto('/home');
 				}
-				// ...
+				else{
+					goto('/verificiation')
+
+				}
+
 			})
 			.catch((error) => {
 				const errorCode = error.code;
@@ -58,12 +58,8 @@
 		/>
 	</div>
 
-	<button class="loginButton" type="submit" on:click={login(username, password)}>Login</button>
+	<button class="loginButton" type="submit" on:click={() =>login(username, password)}>Login</button>
 
 	<h4 class="register" on:click={() => goto('/register')}>Sign up</h4>
 	<h4 class="forgotPassword" on:click={() => goto('/forgotpassword')}>Forgot your password?</h4>
-	{#if user}
-		<p>Singed In</p>
-		<button on:click={logout}>Logout</button>
-	{/if}
 </div>

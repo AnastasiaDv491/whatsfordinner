@@ -14,6 +14,7 @@
 			});
 		});
 	});
+	
 	authStore.subscribe(async ({ isLoggedIn, firebaseControlled }) => {
 		if (!isLoggedIn && firebaseControlled) {
 			await goto('/');

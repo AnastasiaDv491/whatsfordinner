@@ -1,14 +1,12 @@
 <script>
-	import Auth from '/src/auth.svelte';
+	import { auth } from '../../firebase.js';
+	import { signOut } from 'firebase/auth';
+	const logout = () => {
+		signOut(auth);
+	};
 </script>
 
-<Auth
-    let:logout
->
-
 <div>
-    Your verification is pending
-    <button on:click={logout}>Logout</button>
+	Your verification is pending
+	<button on:click={logout}>Logout</button>
 </div>
-
-</Auth>

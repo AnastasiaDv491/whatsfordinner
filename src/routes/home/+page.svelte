@@ -1,5 +1,4 @@
 <script>
-	import Auth from '/src/auth.svelte';
 	import { goto } from '$app/navigation';
 </script>
 
