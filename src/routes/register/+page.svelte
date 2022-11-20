@@ -20,9 +20,10 @@
 				const user = userCredential.user;
 
 				if (user) {
-					sendEmailVerification(auth.currentUser).then(() => {
+					sendEmailVerification(user).then(() => {
 						// Email verification sent!
 						console.log('sent');
+						goto('/verification');
 					});
 				}
 				console.log(user);
@@ -32,7 +33,7 @@
 				const errorCode = error.code;
 
 				console.log(error.code);
-				
+
 				switch (error.code) {
 					case 'auth/email-already-in-use':
 						errorMessage = "This email is already in use";
@@ -46,6 +47,7 @@
 			});
 	};
 </script>
+
 {#if !auth.currentUser}
 <div id="signupContainer">
 	<h1>Sign Up</h1>

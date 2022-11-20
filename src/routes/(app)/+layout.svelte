@@ -26,5 +26,9 @@
         
 	});
 
+	
+
 </script>
+{#if auth.currentUser}
 <slot></slot>
+{/if}

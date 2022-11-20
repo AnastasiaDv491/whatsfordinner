@@ -194,5 +194,8 @@
 		</div>
 	</div>
 </div>
+{#if auth.currentUser} 
 <p>Singed In</p>
 <button on:click={logout}>Logout</button>
+{/if}
+

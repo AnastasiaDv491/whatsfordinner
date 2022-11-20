@@ -4,6 +4,11 @@
 	import { signInWithEmailAndPassword } from 'firebase/auth';
 	import { auth } from '../firebase.js';
 
+	import { signOut } from 'firebase/auth';
+	const logout = () => {
+		signOut(auth);
+	};
+
 	let user;
 	let email;
 	let password;
@@ -13,7 +18,7 @@
 		signInWithEmailAndPassword(auth, email, password)
 			.then((userCredential) => {
 				// Signed in
-				
+
 				if (userCredential.user.emailVerified) {
 					goto('/home');
 				} else {
@@ -67,5 +72,14 @@
 	<p class="errorMessage">{errorMessage}</p>
 
 	<a href="/register"><h4 class="register">Sign up</h4></a>
-	<a href="/forgotpassword"><h4 class="forgotPassword" on:click={() => goto('/forgotpassword')}>Forgot your password?</h4></a>
+	<a href="/forgotpassword"
+		><h4 class="forgotPassword" on:click={() => goto('/forgotpassword')}>
+			Forgot your password?
+		</h4></a
+	>
+
+	{#if auth.currentUser}
+		<p>Singed In</p>
+		<button on:click={logout}>Logout</button>
+	{/if}
 </div>
