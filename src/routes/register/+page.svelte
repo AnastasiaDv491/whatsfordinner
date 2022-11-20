@@ -1,21 +1,49 @@
-<script lang = "ts">
-	import Auth from '/src/auth.svelte';
+<script>
+	import { goto } from '$app/navigation';
+	import {
+		getAuth,
+		signInWithEmailAndPassword,
+		onAuthStateChanged,
+		signOut,
+		createUserWithEmailAndPassword,
+		sendEmailVerification,
+		deleteUser
+	} from 'firebase/auth';
+	import { auth } from '../../firebase.js';
 
-let email;
-let password;
+	let email;
+	let password;
+
+	export const signup = (email, password) => {
+		createUserWithEmailAndPassword(auth, email, password)
+			.then((userCredential) => {
+				// Signed in
+				const user = userCredential.user;
+
+				if (user) {
+					sendEmailVerification(auth.currentUser).then(() => {
+						// Email verification sent!
+						// ...
+						console.log('sent');
+					});
+				}
+				console.log(user);
+				// ...
+			})
+			.catch((error) => {
+				const errorCode = error.code;
+				const errorMessage = error.message;
+				console.log(errorMessage);
+				// ..
+			});
+	};
 </script>
-
-
-<Auth 
-	let:signup
->
 
 <div id="signupContainer">
 	<h1>Sign Up</h1>
 
 	<div class="signupContainer">
-
-        <!-- <input
+		<!-- <input
 			class="signupInput"
 			type="text"
 			placeholder="Name"
@@ -50,4 +78,3 @@ let password;
 		<button on:click={logout}>Logout</button>
 	{/if} -->
 </div>
-</Auth>
